@@ -1,4 +1,10 @@
 .table {
-  width: 40vw;
+  width: 880px;
   margin: 100px auto;
+}
+@media (max-width: 1000px) {
+  .table {
+    width: 90vw;
+    margin: 100px auto;
+  }
 }

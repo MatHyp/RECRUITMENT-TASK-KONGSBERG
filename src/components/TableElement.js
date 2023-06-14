@@ -12,22 +12,46 @@ function TableElement() {
     setSingleBook(
       books
         .filter((book) => book.id.toString() === slug)
-        .map(({ id, title, author, published }) => {
-          return {
-            id: id,
-            title: title,
-            author: author,
-            published: published,
-          };
-        })
+        .map(
+          ({
+            id,
+            title,
+            author,
+            published,
+            genre,
+            isbn,
+            publisher,
+            description,
+          }) => {
+            return {
+              id: id,
+              title: title,
+              author: author,
+              published: published,
+              genre: genre,
+              publisher: publisher,
+              isbn: isbn,
+              description: description,
+            };
+          }
+        )
     );
   }, [books]);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
-    { field: "title", headerName: "Titile", width: 200 },
-    { field: "author", headerName: "Author", width: 200 },
-    { field: "published", headerName: "Published", width: 200 },
+    { field: "id", headerName: "ID", width: 10 },
+    { field: "title", headerName: "Titile", width: 150 },
+    { field: "author", headerName: "Author", width: 150 },
+    { field: "published", headerName: "Published", width: 90 },
+    { field: "publisher", headerName: "Publisher", width: 150 },
+    { field: "genre", headerName: "Genre", width: 150 },
+    { field: "isbn", headerName: "Isbn", width: 150 },
+    {
+      field: "description",
+      headerName: "description",
+      width: 1300,
+      rowHeight: 1000,
+    },
   ];
 
   return (
@@ -38,7 +62,7 @@ function TableElement() {
         <div>
           <p>
             <Link to={`/`}>Main table</Link> /{" "}
-            {`Current book:${singleBook[0].title}`}
+            {`Selected book: ${singleBook[0].title}`}
           </p>
 
           <DataGrid
