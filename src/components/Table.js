@@ -1,21 +1,37 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useContext, useState, useEffect } from "react";
+import { ApiContext } from "../contexts/ApiContext";
+import "../styles/Table.css";
+import { DataGrid } from "@mui/x-data-grid";
 function Table() {
-  const [standings, setStandings] = useState();
+  const [books, setBooks] = useContext(ApiContext);
 
-  useEffect(() => {
-    fetch(
-      "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2022&sort=asc"
-    )
-      .then((results) => results.json())
-      .then(({ data }) => {
-        console.log(data.standings);
+  const columns = [
+    { field: "id", headerName: "ID", width: 90 },
+    { field: "title", headerName: "Titile", width: 200 },
+    { field: "author", headerName: "Author", width: 200 },
+    { field: "published", headerName: "Published", width: 200 },
+  ];
 
-        setStandings(data.standings);
-      });
-  }, []);
+  const rows = books.map(({ id, title, author, published }) => {
+    return {
+      id: id,
+      title: title,
+      author: author,
+      published: published,
+    };
+  });
 
-  return <div></div>;
+  console.log(rows);
+  return (
+    <div className="table">
+      <p>Main table /</p>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={1}
+      />
+    </div>
+  );
 }
 
 export default Table;
