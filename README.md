@@ -1,3 +1,8 @@
+#RECRUITMENT-TASK-KONGSBERG
+
+In project I used React, React-Router to determine routes between pages, UseContext to store data from API, UseState, UseEffect and MUI to obtain styled tables.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
