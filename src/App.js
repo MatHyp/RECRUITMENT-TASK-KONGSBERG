@@ -1,6 +1,9 @@
 import Table from "./components/Table";
+import TableElement from "./components/TableElement";
+
 import React from "react";
 import Store from "./store/Store.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +13,18 @@ function App() {
       </h1>
 
       <Store>
-        <Table />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Table />}
+            />
+            <Route
+              path="/:slug"
+              element={<TableElement />}
+            />
+          </Routes>
+        </BrowserRouter>
       </Store>
     </div>
   );

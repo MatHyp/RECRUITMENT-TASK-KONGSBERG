@@ -21,14 +21,12 @@ function Table() {
     };
   });
 
-  console.log(rows);
   return (
     <div className="table">
       <p>Main table /</p>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={1}
       />
     </div>
   );
