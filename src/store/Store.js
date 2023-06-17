@@ -8,7 +8,6 @@ function Store({ children }) {
     axios
       .get("https://fakerapi.it/api/v1/books?_quantity=10")
       .then(({ data }) => {
-        console.log(data.data);
         setBooks(data.data);
       })
       .catch((error) => {

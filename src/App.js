@@ -5,12 +5,14 @@ import React from "react";
 import Store from "./store/Store.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import "./styles/fonts.css";
+
 function App() {
   return (
     <div className="App">
-      <h1 style={{ textAlign: "center" }}>
-        Table with datas about vatious books
-      </h1>
+      <h2 style={{ textAlign: "center", fontWeight: "500" }}>
+        RECRUITMENT-TASK-KONGSBERG
+      </h2>
 
       <Store>
         <BrowserRouter>

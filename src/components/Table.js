@@ -4,11 +4,12 @@ import "../styles/Table.css";
 // import { Link } from "react-router-dom";
 
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, Link } from "@mui/material";
+import { Link } from "@mui/material";
 
 function Table() {
   const [books, setBooks] = useContext(ApiContext);
 
+  // Columns for MUI table
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     { field: "title", headerName: "Titile", width: 200 },
@@ -24,6 +25,7 @@ function Table() {
     },
   ];
 
+  // Map rows for MUI table
   const rows = books.map(({ id, title, author, published }) => {
     return {
       id: id,
@@ -35,7 +37,8 @@ function Table() {
 
   return (
     <div className="table">
-      <p>Main table /</p>
+      <h2 style={{ textAlign: "center", fontWeight: "300" }}>Main Table</h2>
+      <p>Breadcrumb: /</p>
       <DataGrid
         rows={rows}
         columns={columns}

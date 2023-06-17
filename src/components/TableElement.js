@@ -3,6 +3,7 @@ import { ApiContext } from "../contexts/ApiContext";
 import { useParams } from "react-router";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+
 function TableElement() {
   const { slug } = useParams();
   const [books, setBooks] = useContext(ApiContext);
@@ -50,21 +51,21 @@ function TableElement() {
       field: "description",
       headerName: "description",
       width: 1300,
-      rowHeight: 1000,
     },
   ];
 
   return (
     <div className="">
+      <h2 style={{ textAlign: "center", fontWeight: "300" }}>Book details</h2>
+
       {singleBook.length === 0 ? (
         <p>Element Not Founded</p>
       ) : (
         <div>
           <p>
-            <Link to={`/`}>Main table</Link> /{" "}
-            {`Selected book: ${singleBook[0].title}`}
+            Breadcrumb:
+            <Link to={`/`}> Main table</Link> / {`${singleBook[0].title}`}
           </p>
-
           <DataGrid
             rows={singleBook}
             columns={columns}
