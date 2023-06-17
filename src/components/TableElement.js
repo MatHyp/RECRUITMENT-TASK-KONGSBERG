@@ -59,7 +59,7 @@ function TableElement() {
       <h2 style={{ textAlign: "center", fontWeight: "300" }}>Book details</h2>
 
       {singleBook.length === 0 ? (
-        <p>Element Not Founded</p>
+        <p>Element Not Found</p>
       ) : (
         <div>
           <p>
